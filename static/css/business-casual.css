@@ -36,6 +36,10 @@ hr {
     border-color: #999999;
 }
 
+#left_answer:hover {
+ cursor:pointer;
+}
+
 .brand,
 .address-bar {
     display: none;

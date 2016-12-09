@@ -82,10 +82,10 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li id="play_again_btn">
-                        <a>PLAY AGAIN</a>
+                        <a href="">PLAY AGAIN</a>
                     </li>
                     <li id="to_leaderboard_btn">
-                        <a>TO LEADERBOARD</a>
+                        <a href="">TO LEADERBOARD</>
                     </li>
                 </ul>
             </div>
@@ -113,6 +113,7 @@
         $( document ).ready(() => {
             let nickname = null;
             $('#to_leaderboard_btn').on("click", (event) => {
+                event.preventDefault();
                 if (!isNaN(nickname)) {
                    $('.form-group').addClass("has-error");
                 } else {
@@ -123,7 +124,8 @@
                 }
             });
             $('#play_again_btn').on("click", (event) => {
-               window.location = '/';
+                event.preventDefault();
+                window.location = '/';
             });
             $('#usr').on('input', (event) => {
                     let new_value = event.target.value;
