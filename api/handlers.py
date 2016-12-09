@@ -42,7 +42,7 @@ class MainHandler(BaseHandler):
 
     def get(self):
         question = self.questions.next_question()
-        self.set_answer(question[-1])
+        self.set_answer(True if question[-1] == 0 else False)
         # self.render("index.html", question="How much money did Brad Pitt invest in \"LifePath Active 2020 Fund\"?",
         #             answer1='More than $5M', answer2='Less than $5M',
         #             image='/static/img/brad_pitt.jpg')
