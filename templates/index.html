@@ -114,8 +114,8 @@
                    console.log('not wrong');
                    obj = JSON.parse(msg);
                    document.getElementById("question").innerHTML = obj.question;
-                   document.getElementById("left_answer").innerHTML = "<a>" + obj.answer1 + "</a>";
-                   document.getElementById("right_answer").innerHTML = "<a>" + obj.answer2 + "</a>";
+                   document.getElementById("left_answer").innerHTML = "<a href=''>" + obj.answer1 + "</a>";
+                   document.getElementById("right_answer").innerHTML = "<a href=''>" + obj.answer2 + "</a>";
                    document.getElementById("image").src = obj.image;
                    document.getElementById("score").innerHTML = "Score: " + obj.score;
                }
