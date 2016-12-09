@@ -127,7 +127,12 @@
                    window.location = '/auth';
                } else {
                    console.log('not wrong');
-                   $('#right_answer').innerHTML = "<a>" + msg['answer2'] + "</a>";
+                   obj = JSON.parse(msg);
+                   document.getElementById("question").innerHTML = obj.question;
+                   document.getElementById("left_answer").innerHTML = "<a>" + obj.answer1 + "</a>";
+                   document.getElementById("right_answer").innerHTML = "<a>" + obj.answer2 + "</a>";
+                   document.getElementById("image").src = obj.image;
+                   document.getElementById("score").innerHTML = "Score: " + obj.score;
                }
             });
     });

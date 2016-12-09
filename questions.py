@@ -86,7 +86,7 @@ class Data:
 
         ans0 = self.randomiseAnswers(self.findTopInvestor(), self.transactions[self.returnRand()].client)
         link0 = "http://pngimg.com/upload/money_PNG3545.png"
-        q.append((link0, "Who is the guy who invested the most up until now ?", ans0[0], ans0[1], ans0[2]))
+        q.append((link0, "Who is the guy who invested more money than others until now?", ans0[0], ans0[1], ans0[2]))
 
         transaction1 = self.transactions[self.returnRand()]
         ans1 = self.randomiseAnswers(transaction1.second, self.transactions[self.returnRand()].client)
@@ -95,11 +95,14 @@ class Data:
 
         ans2 = self.randomiseAnswers(self.returnMostSuAdvisor(), self.transactions[self.returnRand()].second)
         link2 = "http://inspiregroup.ro/wp-content/uploads/2015/08/success-1.jpg"
-        q.append((link2, "Who is the most succesfull advisor ?",ans2[0] ,ans2[1] , ans2[2]))
+        q.append((link2, "Who is the most succesfull advisor?", ans2[0], ans2[1], ans2[2]))
 
-        ans3 = self.randomiseAnswers(self.BradPitt(), random.randrange(0,10))
+        ans3 = self.randomiseAnswers(self.BradPitt(), random.randrange(0, 10))
+        if ans3 == 2:  # because actually 2 is the correct answer
+            ans3 = 4
         link3 = "https://media1.popsugar-assets.com/files/thumbor/9xeS3fpQc1QdvdtpD5I4grLYMI4/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2012/09/36/2/192/1922398/2540217bec064a5c_71841717_10/i/Brad-Pitt-got-handsy-2006-press-conference-Babel.jpg"
-        q.append((link3, "How many times does Brad Pitt appears in our transaction data?", ans3[0], ans3[1], ans3[2]))
+        q.append((link3, "How many times does Brad Pitt appear in our transaction data?", '{} times'.format(ans3[0]),
+                  '{} times'.format(ans3[1]), ans3[2]))
         return q[random.randrange(0, len(q))]
 9
 a = Data()
