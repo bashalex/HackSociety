@@ -1,5 +1,5 @@
 import tornado.web
-
+from questions import Data
 
 class BaseHandler(tornado.web.RequestHandler):
     def get_current_user(self):
@@ -33,14 +33,21 @@ class BaseHandler(tornado.web.RequestHandler):
 
 class MainHandler(BaseHandler):
 
+    def __init__(self, application, request, **kwargs):
+        super().__init__(application, request, **kwargs)
+        self.questions = Data()
+
     def data_received(self, chunk):
         pass
 
     def get(self):
-        self.set_answer(True)
-        self.render("index.html", question="How much money did Brad Pitt invest in \"LifePath Active 2020 Fund\"?",
-                    answer1='More than $5M', answer2='Less than $5M',
-                    image='/static/img/brad_pitt.jpg')
+        question = self.questions.next_question()
+        self.set_answer(question[-1])
+        # self.render("index.html", question="How much money did Brad Pitt invest in \"LifePath Active 2020 Fund\"?",
+        #             answer1='More than $5M', answer2='Less than $5M',
+        #             image='/static/img/brad_pitt.jpg')
+        self.render("index.html", image=question[0], question=question[1],
+                    answer1=question[2], answer2=question[3])
 
     def post(self):
         answer = self.get_argument('answer')

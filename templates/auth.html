@@ -123,14 +123,7 @@
                 }
             });
             $('#play_again_btn').on("click", (event) => {
-                if (!isNaN(nickname)) {
-                   $('.form-group').addClass("has-error");
-                } else {
-                    $('.form-group').removeClass("has-error");
-                    score = document.getElementById ("score_field").textContent;
-                    $.post('/auth', {'username': nickname, 'score': score});
-                     window.location = '/';
-                }
+               window.location = '/';
             });
             $('#usr').on('input', (event) => {
                     let new_value = event.target.value;
