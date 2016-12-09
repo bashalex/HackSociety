@@ -57,6 +57,7 @@ class MainHandler(BaseHandler):
             self.increment_score()
             question = self.questions.next_question()
             self.set_answer(True if question[-1] == 0 else False)
+            print('next question is: ', question)
             self.write(json.dumps({'image': question[0],
                                    'question': question[1],
                                    'answer1': question[2],

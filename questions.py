@@ -101,6 +101,6 @@ class Data:
         link3 = "https://media1.popsugar-assets.com/files/thumbor/9xeS3fpQc1QdvdtpD5I4grLYMI4/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2012/09/36/2/192/1922398/2540217bec064a5c_71841717_10/i/Brad-Pitt-got-handsy-2006-press-conference-Babel.jpg"
         q.append((link3, "How many times does Brad Pitt appears in our transaction data?", ans3[0], ans3[1], ans3[2]))
         return q[random.randrange(0, len(q))]
-
+9
 a = Data()
 print(a.next_question())
