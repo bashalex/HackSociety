@@ -43,6 +43,8 @@ class MainHandler(BaseHandler):
         pass
 
     def get(self):
+        if self.get_score() is None:
+            self.set_score_to_zero()
         question = self.questions.next_question()
         self.set_answer(True if question[-1] == 0 else False)
         self.render("index.html", image=question[0], question=question[1],
