@@ -1,5 +1,7 @@
 import tornado.web
 from questions import Data
+import json
+
 
 class BaseHandler(tornado.web.RequestHandler):
     def get_current_user(self):
@@ -43,18 +45,23 @@ class MainHandler(BaseHandler):
     def get(self):
         question = self.questions.next_question()
         self.set_answer(True if question[-1] == 0 else False)
-        # self.render("index.html", question="How much money did Brad Pitt invest in \"LifePath Active 2020 Fund\"?",
-        #             answer1='More than $5M', answer2='Less than $5M',
-        #             image='/static/img/brad_pitt.jpg')
         self.render("index.html", image=question[0], question=question[1],
-                    answer1=question[2], answer2=question[3])
+                    answer1=question[2], answer2=question[3], score=self.get_score())
 
     def post(self):
         answer = self.get_argument('answer')
         if self.get_answer().decode('ascii') == answer:
+            print('correct')
             self.increment_score()
-            self.write('correct')
+            question = self.questions.next_question()
+            self.set_answer(True if question[-1] == 0 else False)
+            self.write(json.dumps({'image': question[0],
+                                   'question': question[1],
+                                   'answer1': question[2],
+                                   'answer2': question[3],
+                                   'score': int(self.get_score().decode('ASCII')) + 1}))
         else:
+            print('wrong')
             self.save_result()
             self.write('wrong')
 
