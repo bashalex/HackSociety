@@ -37,7 +37,6 @@ ticker: 'IBDL', amount: '€43,124,578.00', client: 'Haing S. Ngor', second: 'Em
 ticker: 'BRMIC', amount: '€1,951,330.00', client: 'Hugh Grant', second: 'Omar Sharif', direction: 'RED'
 ticker: 'IYK', amount: '€39,316,031.00', client: 'Jude Law', second: 'David Carradine', direction: 'SUB'
 ticker: 'BNJ', amount: '€46,934,082.00', client: 'Richard Dreyfuss', second: 'ZichnrJ Dreyfus', direction: 'RED'
-ticker: 'MALOX', amount: '€29,837,693.00', client: 'William Baldwin', second: 'unknown', direction: '-1'
 ticker: 'MDRFX', amount: '€7,687,770.00', client: 'Mid Cap', second: 'Richard My', direction: 'RED'
 ticker: 'MUH', amount: '€82,973,334.00', client: 'Charlton Heston', second: 'Peter Ustinov', direction: 'SUB'
 ticker: 'ISZE', amount: '€86,014,130.00', client: 'Brad Pitt', second: 'Mark Ruffalo', direction: '-1'
