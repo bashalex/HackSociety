@@ -47,7 +47,7 @@ class Data:
         return top_investor
 
     def returnRand(self):
-        rand = random.randrange(0,len(self.transactions))
+        rand = random.randrange(0, len(self.transactions))
         return rand
 
     def returnMostSuAdvisor(self):
@@ -69,13 +69,12 @@ class Data:
                 appearances += 1
         return appearances
 
-
     def randomiseAnswers(self, goodAnswer, badAnswer):
         ans0 = []
         ans0.append(goodAnswer)
         ans0.append(badAnswer)
         correct = 0
-        if random.randrange(0,1) == 0:
+        if random.randrange(0, 2) == 0:
             helpingHand = ans0[0]
             ans0[0] = ans0[1]
             ans0[1] = helpingHand
@@ -102,3 +101,6 @@ class Data:
         link3 = "https://media1.popsugar-assets.com/files/thumbor/9xeS3fpQc1QdvdtpD5I4grLYMI4/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2012/09/36/2/192/1922398/2540217bec064a5c_71841717_10/i/Brad-Pitt-got-handsy-2006-press-conference-Babel.jpg"
         q.append((link3, "How many times does Brad Pitt appears in our transaction data?", ans3[0], ans3[1], ans3[2]))
         return q[random.randrange(0, len(q))]
+
+a = Data()
+print(a.next_question())
