@@ -55,7 +55,7 @@ ticker: 'BRIPC', amount: '€15,279,374.00', client: 'Liam Neeson', second: 'Cha
 ticker: 'BIPCX', amount: '€60,132,914.00', client: 'Matthew Modine', second: 'James Purefoy', direction: 'SUB'
 ticker: 'LPSFX', amount: '€45,694,179.00', client: 'Anthony Quinn', second: 'Brian Dennehy', direction: 'SUB'
 ticker: 'IYM', amount: '€54,102,300.00', client: 'Matt Damon', second: 'Jim Carrey', direction: 'RED'
-ticker: 'IBMI', amount: '€19,436,996.00', client: 'Bond ETF', second: 'MattQm WWW', direction: 'RED'
+ticker: 'IBMI', amount: '€19,436,996.00', client: 'Matthew Modine', second: 'Sylvester Stallone', direction: 'RED'
 ticker: 'CAM', amount: '€79,167,243.00', client: 'Kevin Costner', second: 'Charlie Sheen', direction: 'SUB'
 ticker: 'MD05A', amount: '€57,312,867.00', client: 'Sam Shepard', second: 'Ben Affleck', direction: 'RED'
 ticker: 'BIPKX', amount: '€56,009,350.00', client: 'John Malkovich', second: 'Harry Dean Stanton', direction: 'RED'
