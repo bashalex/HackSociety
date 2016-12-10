@@ -22,7 +22,7 @@ class Data:
               'Tom Hanks': 'https://pmcvariety.files.wordpress.com/2016/09/tom-hanks.jpg?w=670&h=377&crop=1',
               'Will Smith': 'https://static.independent.co.uk/s3fs-public/styles/story_medium/public/thumbnails/image/2015/10/02/12/Will-Smith-Fresh-Prince.jpg',
               'Robbin Williams': 'http://static.parade.com/wp-content/uploads/2013/09/robin-williams-cover-ftr.jpg',
-              'George Clooney': 'http://vignette2.wikia.nocookie.net/muppet/images/c/c8/George_Clooney.jpg/revision/latest?cb=20151209144015',
+              'George Clooney': 'http://www.albawaba.com/sites/default/files/im/egroge-clooney-old-age.jpg',
               'Matt Damon': 'http://cp91279.biography.com/1000509261001/1000509261001_2036180457001_BIO-Biography-Matt-Damon-LF.jpg',
               'Nicolas Cage': 'https://discdoesretro.files.wordpress.com/2013/07/tumblr_mftalf5cpv1qa934fo1_1280.png',
               'Woody Allen': 'http://www.woodyallenpages.com/wp-content/uploads/2015/08/woodyportrait-xlarge.jpg',
