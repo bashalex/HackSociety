@@ -160,6 +160,6 @@ ticker: 'WFSPX', amount: '€34,556,387.00', client: 'Jeff Bridges', second: 'Ti
 ticker: 'BIBDX', amount: '€49,906,845.00', client: 'Gerard Depardieu', second: 'Brian Dennehy', direction: 'RED'
 ticker: 'BRRMC', amount: '€11,621,564.00', client: 'Shia LaBeouf', second: 'Vince Vaughn', direction: 'SUB'
 ticker: 'MDDCX', amount: '€26,259,447.00', client: 'John Travolta', second: 'Christopher Lee', direction: 'RED'
-ticker: 'IYZ', amount: '€10,235,016.00', client: 'Heath Ledger', second: 'David Carradine', direction: 'RED
+ticker: 'IYZ', amount: '€10,235,016.00', client: 'Heath Ledger', second: 'David Carradine', direction: 'RED'
 ticker: 'RED', amount: '€76,670,684.00', client: 'Mel Gibson', second: 'Orlando Bloom', direction: 'RED'
 ticker: 'BHYRX', amount: '€38,549,378.00', client: 'Michaei Caine', second: 'William Baldwin', direction: 'RED'
