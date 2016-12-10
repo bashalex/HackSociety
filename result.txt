@@ -135,7 +135,7 @@ ticker: 'USA', amount: '€8,511,478.00', client: 'Colin Firth', second: 'Ben Af
 ticker: 'LPCPX', amount: '€35,381,153.00', client: 'Clint Eastwood', second: 'David Carradine', direction: 'SUB'
 ticker: 'MVF', amount: '€66,270,723.00', client: 'Ben Kingsley', second: 'Harry Dean Stanton', direction: 'SUB'
 ticker: 'BDSAX', amount: '€21,082,821.00', client: 'Mickey Rourke', second: 'Vince Vaughn', direction: 'SUB'
-ticker: 'BRIOC', amount: '€73,143,65900', client: 'Robert Downey', second: 'Vince Vaughn', direction: 'RED'
+ticker: 'BRIOC', amount: '€73,143,65900', client: 'Robert Downey Jr.', second: 'Vince Vaughn', direction: 'RED'
 ticker: 'BRPLX', amount: '€80,146,08400', client: 'Joe Pesci', second: 'Chariie Sheen', direction: 'SUB'
 ticker: 'PNIGX', amount: '€5,356,396.00', client: 'Pierce Brosnan', second: 'Christopher Lambert', direction: 'SUB'
 ticker: 'BHK', amount: '€33,565,885.00', client: 'Harrison Ford', second: 'Jan Decleir', direction: 'SUB'

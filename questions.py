@@ -48,7 +48,20 @@ class Data:
     custom_questions1 = [('What do you think Sean Connery spent €12,122,387.00 on?',
                           'https://s-media-cache-ak0.pinimg.com/originals/d8/a3/c0/d8a3c0ee40b509ee3f4b2c6f844ea08a.jpg',
                           'Ferrari 340/375 MM Berlinetta',
-                          'Aston Martin DB4 GT')]
+                          'Aston Martin DB4 GT'),
+                         ('In which sector did Mel Gibson invest the most?',
+                          'http://informa.com/Global/Promo%20items/BI-Logos/300x185/Finance/Quote_finance.jpg',
+                          'Financial Services',
+                          'Technology'),
+                         ('In which sector did Matt Damon invest the most?',
+                          'http://informa.com/Global/Promo%20items/BI-Logos/300x185/Finance/Quote_finance.jpg',
+                          'Basic materials',
+                          'Healthcare'),
+                         ('In which sector did Ralph Fiennes invest the most?',
+                          'http://informa.com/Global/Promo%20items/BI-Logos/300x185/Finance/Quote_finance.jpg',
+                          'Industrials',
+                          'Real Estate')
+                         ]
 
     file = open(path, 'r')
     lines = file.readlines()
