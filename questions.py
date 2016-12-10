@@ -123,10 +123,10 @@ class Data:
         return advisor_name
 
     def invested_money(self, name):
-        return sum(self.amount_to_int(tx.amount) for tx in self.transactions if tx.client == name and tx.direction == 'RED')
+        return sum(self.amount_to_int(tx.amount) for tx in self.transactions if tx.client == name and tx.direction == 'SUB')
 
     def withdrawn_money(self, name):
-        return sum(self.amount_to_int(tx.amount) for tx in self.transactions if tx.client == name and tx.direction == 'SUB')
+        return sum(self.amount_to_int(tx.amount) for tx in self.transactions if tx.client == name and tx.direction == 'RED')
 
     def num_of_entries_advisor(self, name):
         return sum(1 for tx in self.transactions if tx.second == name)
