@@ -39,7 +39,16 @@ class Data:
               'Roger Moore': 'http://www.007.com/wp-content/uploads/2014/01/Roger-Moore-james-bond-BW.jpg',
               'John Goodman': 'http://i.onionstatic.com/avclub/5568/96/16x9/960.jpg',
               'Gene Hackman': 'http://www.bestmoviesbyfarr.com/static-assets/images/articles/background/2016/01/gene-hackman-big.jpeg',
-              'Mickey Rourke': 'http://www.hobbyconsolas.com/sites/hobbyconsolas.com/public/media/image/2015/02/448068-cine-superheroes-critica-iron-man-2.png'}
+              'Mickey Rourke': 'http://www.hobbyconsolas.com/sites/hobbyconsolas.com/public/media/image/2015/02/448068-cine-superheroes-critica-iron-man-2.png',
+              'Sean Connery': 'https://s-media-cache-ak0.pinimg.com/originals/d8/a3/c0/d8a3c0ee40b509ee3f4b2c6f844ea08a.jpg'}
+
+    with open('questions.txt', 'r') as f:
+        custom_questions = [line.split(';') for line in f.readlines()]
+
+    custom_questions1 = [('What do you think Sean Connery spent €12,122,387.00 on?',
+                          'https://s-media-cache-ak0.pinimg.com/originals/d8/a3/c0/d8a3c0ee40b509ee3f4b2c6f844ea08a.jpg',
+                          'Ferrari 340/375 MM Berlinetta',
+                          'Aston Martin DB4 GT')]
 
     file = open(path, 'r')
     lines = file.readlines()
@@ -71,6 +80,12 @@ class Data:
                 actor_name = actor
                 break
         return actor_name
+
+    def random_custom_question(self):
+        return self.custom_questions[random.randrange(len(self.custom_questions))]
+
+    def random_custom1_question(self):
+        return self.custom_questions1[random.randrange(len(self.custom_questions1))]
 
     @staticmethod
     def amount_to_int(amount):
@@ -120,7 +135,7 @@ class Data:
         return sum(1 for tx in self.transactions if tx.client == name)
 
     @staticmethod
-    def randomise_answers(good_answer, bad_answer):
+    def shuffle_answers(good_answer, bad_answer):
         ans = [good_answer, bad_answer]
         r = random.randrange(0, 2) == 0
         correct = 0 if r else 1
@@ -129,47 +144,52 @@ class Data:
     def next_question(self):
         question_type = random.randrange(0, 100)
         ans = None, None
-        if question_type == 0:
+        if question_type == 0:  # who is the guy who invested more money than others until now? 1%
             while ans[0] == ans[1]:
-                ans = self.randomise_answers(self.richest_investor(), self.random_tx().client)
+                ans = self.shuffle_answers(self.richest_investor(), self.random_tx().client)
             link = "http://pngimg.com/upload/money_PNG3545.png"
             question_text = "Who is the guy who invested more money than others until now?"
-        elif question_type == 1:
+        elif question_type == 1:  # which advisor managed more deals than others? 1%
             while ans[0] == ans[1]:
-                ans = self.randomise_answers(self.most_active_advisor(), self.random_tx().second)
+                ans = self.shuffle_answers(self.most_active_advisor(), self.random_tx().second)
             link = "http://inspiregroup.ro/wp-content/uploads/2015/08/success-1.jpg"
             question_text = "Which advisor managed more deals than others?"
-        elif question_type < 30:
+        elif question_type < 30:  # who is the financial advisor of <actor>? 28%
             tx = self.random_tx()
             while ans[0] == ans[1]:
-                ans = self.randomise_answers(tx.second, self.random_tx().client)
+                ans = self.shuffle_answers(tx.second, self.random_tx().client)
             link = self.actors.get(tx.client, "http://assets.howtobecome.com/assets/images/2014/03/Financial-Advisor.jpg")
             question_text = "Who is the financial advisor of {}?".format(tx.client)
-        elif question_type < 50:
+        elif question_type < 50:  # how much money did <actor> withdraw? 20%
             tx = self.random_tx()
             while ans[0] == ans[1]:
                 real_amount = self.int_to_amount(self.withdrawn_money(tx.client))
-                ans = self.randomise_answers(real_amount, self.random_tx().amount)
+                ans = self.shuffle_answers(real_amount, self.random_tx().amount)
             link = self.actors.get(tx.client, "http://assets.howtobecome.com/assets/images/2014/03/Financial-Advisor.jpg")
             question_text = "How much money did {} withdraw?".format(tx.client)
-        elif question_type < 75:
+        elif question_type < 60:  # custom question with two custom answers 10%
+            question = self.random_custom1_question()
+            question_text = question[0]
+            link = question[1]
+            ans = self.shuffle_answers(question[2], question[3])
+        elif question_type < 75:  # how much money did <actor> invest? 15%
             tx = self.random_tx()
             while ans[0] == ans[1]:
                 real_amount = self.int_to_amount(self.invested_money(tx.client))
-                ans = self.randomise_answers(real_amount, self.random_tx().amount)
+                ans = self.shuffle_answers(real_amount, self.random_tx().amount)
             link = self.actors.get(tx.client, "http://assets.howtobecome.com/assets/images/2014/03/Financial-Advisor.jpg")
             question_text = "How much money did {} invest?".format(tx.client)
-        else:
+        elif question_type < 90:  # custom questions where the answer is a name 15%
+            question_text, correct_ans, link = self.random_custom_question()
+            while ans[0] == ans[1]:
+                ans = self.shuffle_answers(correct_ans, self.random_actor())
+        else:  # how many times does <actor> appear in out transactions data? 10%
             actor_name = self.random_actor()
             while ans[0] == ans[1]:
                 print('actor: {}, times: {}'.format(actor_name, self.number_of_entries_client(actor_name)))
-                ans = self.randomise_answers(self.number_of_entries_client(actor_name), random.randrange(0, 10))
+                ans = self.shuffle_answers(self.number_of_entries_client(actor_name), random.randrange(0, 10))
             print(ans)
             ans = '{} times'.format(ans[0]), '{} times'.format(ans[1]), ans[2]
             link = self.actors[actor_name]
-            question_text = "How many times does {} appear in our transaction data?".format(actor_name)
+            question_text = "How many times does {} appear in our transactions data as investor?".format(actor_name)
         return link, question_text, ans[0], ans[1], ans[2]
-
-
-a = Data()
-print(a.number_of_entries_client('Nicolas Cage'))
