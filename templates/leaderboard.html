@@ -94,6 +94,12 @@
                         <small>score: {{ score3 }}</small>
                     </h3>
                 </div>
+                <div class="col-lg-12 text-left">
+                    <h2 class="brand-before">Others:</h2>
+                    {% for item in top %}
+                    <h2 class="brand-before"><small>{{ item[0] }}. {{ item[1] }}</small>: {{ item[2] }}</h2>
+                    {% end %}
+                </div>
                 <div class="clearfix"></div>
             </div>
         </div>

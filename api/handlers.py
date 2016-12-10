@@ -84,10 +84,16 @@ class LeaderBoardHandler(BaseHandler):
             top = sorted(scores, key=lambda x: x[1], reverse=True)[:2]
             top.append(('Unknown', 0))
         else:
-            top = sorted(scores, key=lambda x: x[1], reverse=True)[:3]
+            top = sorted(scores, key=lambda x: x[1], reverse=True)
+        if len(top) > 3:
+            top_rest = [(i, el[0], el[1]) for i, el in enumerate(top[3:])]
+        else:
+            top_rest = []
+        print(top_rest)
         self.render("leaderboard.html", top1=top[0][0], score1=top[0][1],
                                         top2=top[1][0], score2=top[1][1],
-                                        top3=top[2][0], score3=top[2][1])
+                                        top3=top[2][0], score3=top[2][1],
+                                        top=top_rest)
 
     def post(self):
         action = self.get_argument('action')
